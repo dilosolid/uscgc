@@ -1,0 +1,66 @@
+<div class='mobilePadding' >
+  <div class="centerElement oswaldFont mainPageText">Contact Us</div>
+  <br>
+  <div><h3><span class="buttonCustom">General Info</span></h3></div>      
+  <hr>
+  <div class="input-group">
+    <span class="input-group-addon">Name:</span>
+    <input type="text" class="form-control" placeholder="John Smith" [(ngModel)]='name' >
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">Email:&nbsp;</span>
+    <input type="text" class="form-control" placeholder="johnsmith@gmail.com" [(ngModel)]='email' >
+  </div>
+  <br>
+  <div><h3><span class="buttonCustom">Subject</span></h3></div>
+  <br>
+  <div>
+      <span class="radioButtonContactPage" ><input type="radio" name="subject" value="support"    [(ngModel)]='subject' > Support</span>
+      <span class="radioButtonContactPage" ><input type="radio" name="subject" value="suggestion" [(ngModel)]='subject' > Suggestion</span>
+      <span class="radioButtonContactPage" ><input type="radio" name="subject" value="hireme"     [(ngModel)]='subject' > Hire Me</span>
+      <span class="radioButtonContactPage" ><input type="radio" name="subject" value="other"      [(ngModel)]='subject' > Other</span>
+  </div>
+  <br>
+  <div><h3><span class="buttonCustom">Message</span></h3></div>
+  <br>
+  <div class='mobileTextArea'>
+    <textarea rows="15" style="width:100%" [(ngModel)]='message' >          
+    </textarea>
+  </div>
+  <br *ngIf="ShowInfo == 1 || ShowInfo == 2" >            
+  <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+  <div class="alert alert-danger infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>              
+  <br>
+  <button type="button" class="btn btn-success" id='SubmitInquiry' >Submit Inquiry</button>
+  <br><br>
+  <div><span class="label label-danger infoMessage wordwrap">Note: USCGCert is NOT in any way associated with the United States Coast Guard.</span></div>
+  <hr>
+  
+  <div>
+    <h4>You can also sent your questions to our mailing address</h4>
+    <div style="padding-left: 20px;">
+      <h4>Name: Marcos Rijo</h4>
+      <h4>Address: CPS 15802</h4>
+      <h4>Address: 1733 N.W. 79th Avenue</h4>
+      <h4>City: Miami</h4>
+      <h4>State: Florida</h4>
+      <h4>Zip Code: 33191-1101</h4>
+    </div>
+  </div>
+  <hr>
+
+  <div>
+    <h4>Business Address</h4>
+    <div style="padding-left: 20px;">
+      <h4>Name: Marcos Rijo</h4>
+      <h4>Address: Gaspar Polanco #96, Bella Vista</h4>      
+      <h4>City: Santo Domingo</h4>
+      <h4>State: Santo Domingo</h4>      
+      <h4>Zip Code: 10112</h4>
+      <h4>State: Dominican Republic</h4>
+    </div>
+  </div>
+
+
+</div>

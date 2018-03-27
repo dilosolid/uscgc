@@ -1,0 +1,12 @@
+<span *ngIf='showTitle'>
+  <h3 style="text-align: center;color:#2d80c7; ">Hope to see you back soon!!</h3>
+  <br>
+</span>
+<div style="text-align: center;width: 100%;">
+  <button type="button" class="btn btn-success" (click)='showLogOut()' style="width:300px;display: inline-block;" >Press to "Log Out"</button>
+  <div style='padding-top:10px;'>
+    <button type="button"*ngIf='bShowLogOut' style="width:300px;display: inline-block;" class="btn btn-danger btn-block" (click)='logOut()'>Are you sure? Click to confirm</button>            
+  </div>
+</div>
+
+

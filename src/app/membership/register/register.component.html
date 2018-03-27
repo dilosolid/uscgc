@@ -1,0 +1,43 @@
+<br><br>
+<div class="row">   
+  <span class="col-xs-1 col-sm-1 col-md-2" ></span>
+  <span class="col-xs-10 col-sm-10 col-md-8" >            
+    <div class="panel panel-primary">
+      <div class="panel-heading">Register</div>
+      <div class="panel-body">                                              
+        <!--
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span class='glyphicon glyphicon-italic'></span></span>
+            <input type="text" tabindex="2" class="form-control" placeholder="Name" [(ngModel)]='Name' >
+          </div>
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span class='glyphicon glyphicon-user'></span></span>
+            <input type="text" tabindex="2" class="form-control" placeholder="Username" [(ngModel)]='Username'>
+          </div>
+          -->
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span style="font-weight: bold;font-size:1.3em;" >@</span></span>
+            <input type="text" tabindex="2" class="form-control" placeholder="Email" [(ngModel)]='Email'>
+          </div>   
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span class='glyphicon glyphicon-lock'></span></span>
+            <input type="password" tabindex="2" class="form-control" placeholder="Password" [(ngModel)]='Password'>
+          </div>
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span class='glyphicon glyphicon-lock'></span></span>
+            <input type="password" tabindex="2" class="form-control" placeholder="Confirm password" [(ngModel)]='Password2'>
+          </div>                    
+          <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+          <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>                  
+          <span class='homeform'>                    
+            <button type="button"  class="btn btn-primary btn-block" id='RegisterBtn'>Create new user</button>
+          </span> 
+          <div style='padding-top: 15px;'><a routerLink='/login'>have an account? Click Here to log in</a></div>
+          <hr>          
+          <app-login3rdparty></app-login3rdparty>                   
+          <hr>
+      </div>
+    </div>
+    </span>
+  <span class="col-xs-1 col-sm-1 col-md-2" ></span>
+</div>

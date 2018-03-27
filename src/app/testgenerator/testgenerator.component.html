@@ -1,0 +1,65 @@
+<div class="mobilePadding" >  
+  <div class="centerElement oswaldFont mainPageText" >Generate Test</div>
+  <div><h3><span class="buttonCustom">Test Name</span></h3></div>      
+  <br>            
+  <input type="text" class="form-control" placeholder="test name" [(ngModel)]='testname' >      
+  <br>
+  <div><h3><span class="buttonCustom">Number of questions</span></h3></div>     
+  <div style="padding: 10px 0px 10px 0px">
+    <span class="radioButtonContactPage" ><input type="radio" name="questions" value="5"  [(ngModel)]='questions' > 5</span>
+    <span class="radioButtonContactPage" ><input type="radio" name="questions" value="10"  [(ngModel)]='questions' > 10</span>
+    <span class="radioButtonContactPage" ><input type="radio" name="questions" value="20"  [(ngModel)]='questions' > 20</span>
+    <span class="radioButtonContactPage" ><input type="radio" name="questions" value="50"  [(ngModel)]='questions' > 50</span>
+    <span class="radioButtonContactPage" ><input type="radio" name="questions" value="100" [(ngModel)]='questions' > 100</span>
+  </div>
+  <div><h3><span class="buttonCustom">Categories</span></h3></div>     
+  <br>      
+  <button type="button" class="btn btn-success"  (click)='SelectAll()' >&nbsp;Select All&nbsp;</button>
+  <button type="button" class="btn btn-success" (click)='unSelectAll()' >&nbsp;Unselect All&nbsp;</button>
+  <br>      
+  <br>      
+  <div class="row">   
+    <div class="col-xs-12 col-md-3" >             
+      <div><h3><span class="buttonCustom">Deck</span></h3></div>        
+      <div><input type="checkbox" [(ngModel)]='category[0]' >&nbsp;RULES OF THE ROAD</div>
+      <div><input type="checkbox" [(ngModel)]='category[1]' >&nbsp;DECK GENERAL</div>
+      <div><input type="checkbox" [(ngModel)]='category[2]' >&nbsp;GENERAL NAVIGATION</div>
+      <div><input type="checkbox" [(ngModel)]='category[3]' >&nbsp;SAFETY</div>
+      <div><input type="checkbox" [(ngModel)]='category[4]' >&nbsp;NAVIGATION PROBLEMS</div>
+      <div><input type="checkbox" [(ngModel)]='category[5]' >&nbsp;ELEMENT 3</div>
+      <div><input type="checkbox" [(ngModel)]='category[6]' >&nbsp;ELEMENT 7</div>
+    </div>
+    <div class="col-xs-12 col-md-3" >             
+      <div><h3><span class="buttonCustom">Deck2014</span></h3></div>  
+      <div><input type="checkbox" [(ngModel)]='category[7]' >&nbsp;RULES OF THE ROAD</div>
+      <div><input type="checkbox" [(ngModel)]='category[8]' >&nbsp;DECK GENERAL</div>
+      <div><input type="checkbox" [(ngModel)]='category[9]' >&nbsp;GENERAL NAVIGATION</div>
+      <div><input type="checkbox" [(ngModel)]='category[10]' >&nbsp;NAVIGATION PROBLEMS</div>
+      <div><input type="checkbox" [(ngModel)]='category[11]' >&nbsp;SAFETY</div>
+    </div>
+    <div class="col-xs-12 col-md-3" >             
+      <div><h3><span class="buttonCustom">Engine</span></h3></div>  
+      <div><input type="checkbox" [(ngModel)]='category[12]' >&nbsp;ELECTRICITY</div>
+      <div><input type="checkbox" [(ngModel)]='category[13]' >&nbsp;GENERAL SUBJECTS</div>
+      <div><input type="checkbox" [(ngModel)]='category[14]' >&nbsp;MOTOR PLANTS AND AUXILIARY BOILERS</div>
+      <div><input type="checkbox" [(ngModel)]='category[15]' >&nbsp;STEAM PLANTS</div>
+      <div><input type="checkbox" [(ngModel)]='category[16]' >&nbsp;ENGINEERING SAFETY</div>
+      <div><input type="checkbox" [(ngModel)]='category[17]' >&nbsp;REFRIGERATION</div>
+      <div><input type="checkbox" [(ngModel)]='category[18]' >&nbsp;GAS TURBINES</div>
+    </div>
+    <div class="col-xs-12 col-md-3" >             
+      <div><h3><span class="buttonCustom">Engine2014</span></h3></div>  
+      <div><input type="checkbox" [(ngModel)]='category[19]' >&nbsp;GENERAL SUBJECTS</div>
+      <div><input type="checkbox" [(ngModel)]='category[20]' >&nbsp;ELECTRICITY</div>
+      <div><input type="checkbox" [(ngModel)]='category[21]' >&nbsp;STEAM PLANTS</div>
+      <div><input type="checkbox" [(ngModel)]='category[22]' >&nbsp;MOTOR PLANTS AND AUXILIARY BOILERS</div>
+      <div><input type="checkbox" [(ngModel)]='category[23]' >&nbsp;ENGINEERING SAFETY</div>
+    </div>        
+  </div>
+  <div style="padding-top: 30px;">        
+    <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+    <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>        
+    <button type="button" class="btn btn-success" (click)='generateTest()' >Generate Test</button>
+  </div>          
+</div>
+

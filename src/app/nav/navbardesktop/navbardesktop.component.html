@@ -1,0 +1,27 @@
+<div>
+  <div style="background:white;border-bottom: thin solid black;">    
+    <div style='text-align: right;'>Welcome 
+      <span *ngIf="(currentUser && !currentUser.isAnonymous)" ><a routerLink='/userinfo'>{{ currentUser.displayName ?  currentUser.displayName : currentUser.email }}</a> -</span> 
+      <span *ngIf="(currentUser &&  currentUser.isAnonymous)">
+        <span>Guest - </span>
+        <span><a routerLink='/login'   >Login</a> - </span> 
+        <span><a routerLink='/register'>Register</a></span>                            
+      </span>
+      <span *ngIf="(currentUser && !currentUser.isAnonymous)" (click)='logout()' ><a routerLink='/' >Log Out</a></span>      
+      <!-- <span (click)='logout()' ><a routerLink='/' >Log Out</a></span>      -->
+    </div>  
+    <span class='navTop' >        
+      <ul>
+        <li><img [src]="img_path_logo" alt="Illustration" style="max-width: 100px"></li>        
+        <li><a routerLink='/'           routerLinkActive='activeLink' [routerLinkActiveOptions]="{ exact: true }" >Home</a></li>
+        <li><a routerLink='/question'   routerLinkActive='activeLink' >questions</a></li>
+        <li><a routerLink='/disclaimer' routerLinkActive='activeLink' >disclaimer</a></li>
+        <li><a routerLink='/contact'    routerLinkActive='activeLink' >Contact</a></li>                        
+        <!-- <li *ngIf="(currentUser && currentUser.isAnonymous)"><a routerLink='/register'    routerLinkActive='activeLink' >Register</a></li>  -->
+      </ul> 
+    </span>    
+  </div>
+</div>
+<span>
+  <app-navadminbar></app-navadminbar>
+</span>

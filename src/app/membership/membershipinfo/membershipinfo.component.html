@@ -1,0 +1,38 @@
+<div class='mobilePadding'>
+  <div class="centerElement oswaldFont mainPageText" *ngIf='showTitle' >Subscribe</div>
+  <hr>
+  <div class="row">   
+    <span class="col-xs-12 col-sm-12 col-md-6" >            
+      <div class='oswaldFont importantPageText' >Free Membership (15 Days trial)</div><br>
+      <div>
+        <ul style="list-style-type:square">
+          <li>15 Days trial with all paid membership features.</li> 
+          <li>Get access to more than 15,000 questions.</li>      
+          <li>Deck</li>
+          <li>Deck 2014</li>
+          <li>Engine</li>
+          <li>Engine 2014</li>              
+        </ul>
+      </div>          
+    </span>    
+    <span class="col-xs-12 col-sm-12 col-md-6" >            
+      <div class='oswaldFont importantPageText' >Paid Membership ($14.99 a month)</div><br>
+      <div>
+        <ul style="list-style-type:square">
+          <li>All free membership benefits</li>
+          <li>Get access to more than 30,000+ questions.</li>
+          <li>Generate custom tests and get the results.</li>
+          <li>Save favorites question.</li>
+          <li>Backlist unwanted questions.</li>
+          <li>View question answer history.</li>
+          <li>Search all the questions.</li>
+        </ul>
+      </div>          
+    </span>        
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <button type="button" *ngIf='currentUser?.isAnonymous' style="max-width: 300px;display: inline-block;" class="btn btn-primary btn-block" (click)='goToRegister()'>Create Free Account</button>
+    <button type="button" *ngIf='!currentUser?.isAnonymous && !isRecurringPayUser' style="max-width: 300px;display: inline-block;" class="btn btn-primary btn-block" (click)='goToPayment()'>Make me a pay user</button>
+  </div>  
+</div>

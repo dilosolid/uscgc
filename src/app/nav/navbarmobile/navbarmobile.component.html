@@ -1,0 +1,36 @@
+<div style="background: #80bfff;">
+  <span style="padding: 0px 0px 0px 10px;">
+    <i class="fa fa-bars fa-3x" aria-hidden="true" style="color: white;" (click)='toggleMenu()'></i> 
+    <a routerLink='/' > <i class="fa fa-home fa-3x" aria-hidden="true" style='color: white;padding-left: 30px;'></i></a>
+  </span>  
+  <span style='color:white; text-align: right;display: inline-block;width:60%;font-weight: bold;font-size:0.8em;'>        
+      <span *ngIf="(currentUser && !currentUser.isAnonymous)" >{{ currentUser.displayName ?  currentUser.displayName : currentUser.email }}</span> 
+      <span *ngIf="(currentUser && currentUser.isAnonymous)">
+        <span>Guest</span>        
+      </span>      
+       <i class="fa fa-user-circle-o fa-3x" (click)="goToRoute('userinfo')" aria-hidden="true"></i>
+  </span>
+  <div *ngIf="showMenu" class='mobileMenusItemsColor' >
+    <a class="list-group-item" (click)='HideMenu("")' routerLink='/' ><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+    <span *ngIf="(currentUser && currentUser.isAnonymous)" class='mobileMenusItemsColor' >
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/question'>  <i class="fa fa-book fa-fw"   aria-hidden="true"></i>&nbsp; Questions</a>      
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/register'>  <i class="fa fa-pencil-square-o fa-fw"   aria-hidden="true"></i>&nbsp; Register</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/login'>     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp; Login</a>      
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/disclaimer'><i class="fa fa-book fa-fw"   aria-hidden="true"></i>&nbsp; Disclaimer</a>      
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/contact' >  <i class="fa fa-phone fa-fw"  aria-hidden="true"></i>&nbsp; Contact</a>   
+    </span>    
+    <span *ngIf="(currentUser && !currentUser.isAnonymous)" class='mobileMenusItemsColor' > 
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/userinfo' >          <i class="fa fa-cog fa-fw"             aria-hidden="true"></i>&nbsp; My Account</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/disclaimer' >        <i class="fa fa-book fa-fw"            aria-hidden="true"></i>&nbsp; Disclaimer</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/contact' >           <i class="fa fa-phone fa-fw"           aria-hidden="true"></i>&nbsp; Contact</a>   
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/question' >          <i class="fa fa-book fa-fw"            aria-hidden="true"></i>&nbsp; Questions</a>     
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/testgenerator' >     <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>&nbsp; Test Generator</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/userscorehistory' >  <i class="fa fa-bar-chart fa-fw"       aria-hidden="true"></i>&nbsp; Score</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/favoritesquestion' > <i class="fa fa-bookmark fa-fw"        aria-hidden="true"></i>&nbsp; Favorites</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/blacklistedquestion'><i class="fa fa-ban fa-fw"             aria-hidden="true"></i>&nbsp; Blacklisted</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/questionhistory' >   <i class="fa fa-list-ol fa-fw"         aria-hidden="true"></i>&nbsp; History</a>
+      <a class="list-group-item" (click)='HideMenu("")' routerLink='/questionsearch' >    <i class="fa fa-search fa-fw"          aria-hidden="true"></i>&nbsp; Search</a>    
+      <a class="list-group-item" (click)='HideMenu("LogOut")' >                           <i class="fa fa-user-circle-o fa-fw"   aria-hidden="true"></i>&nbsp; Log Out</a>
+    </span>
+  </div>
+</div>

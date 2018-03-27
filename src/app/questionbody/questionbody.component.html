@@ -1,0 +1,14 @@
+<div>     
+  <div class="row" *ngIf='bShowQuestionMenu'>   
+    <span class="hidden-xs col-sm-12 col-md-12" >
+      <app-navquestions (onRefreshQuestion)='RefreshQuestion()' [isActive1]='isActive1' [isActive2]='isActive2' [isActive3]='isActive3' [isActive4]='isActive4' ></app-navquestions>   
+    </span>
+  </div>
+  <div class="row" *ngIf='bShowQuestionMenu'>   
+    <span class="col-xs-12 hidden-sm hidden-md hidden-xl hidden-lg" >
+      <app-navquestionsmobile (onRefreshQuestion)='RefreshQuestion()' [isActive1]='isActive1' [isActive2]='isActive2' [isActive3]='isActive3' [isActive4]='isActive4' ></app-navquestionsmobile>  
+    </span>
+  </div>  
+  <app-loading-spinner *ngIf="!gotData" ></app-loading-spinner>
+  <app-question [hidden]='!gotData' [refreshQuestion]="refreshQuestion" (onGotData)='gotdata()' (isActive1)="onIsActive(1)" (isActive2)="onIsActive(2)" (isActive3)="onIsActive(3)" (isActive4)="onIsActive(4)" (showQuestionMenu)='showQuestionMenu($event)' ></app-question>          
+</div>

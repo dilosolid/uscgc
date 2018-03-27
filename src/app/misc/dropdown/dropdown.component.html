@@ -1,0 +1,12 @@
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (mouseenter)='ShowDropdown($event,true,true)' (mouseleave)='ShowDropdown($event,false,true)' style="color:#8a6d3b;background: #fcf8e3;" > {{ title }} <span class="caret"></span></button>
+    <div (mouseenter)='ShowDropdown($event,true,false)' (mouseleave)='ShowDropdown($event,false,false)' [ngStyle]="{ position:'fixed', 'z-index':'1000', left:buttonX + 'px', top: buttonY + 'px', width: elementWidth + 'px'}">
+      <div style="background:#fcf8e3; color: red !important;border: 1px solid #ddd;">
+        <ul *ngIf="showDropDown" style="list-style: none; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;">                          
+          <li *ngFor='let link of links' ><a routerLink='/question' [queryParams]="{ category:link.category }"  routerLinkActive='activeLink' > {{link.name}} </a></li>                        
+        </ul>          
+      </div>
+    </div>
+  </div>     
+</div>   

@@ -1,0 +1,60 @@
+<app-loading-spinner *ngIf="!gotData" ></app-loading-spinner>
+<div class='mobilePadding' *ngIf="gotData" >  
+  <div class="row">   
+    <span class="hidden-xs col-sm-12 col-md-12" >            
+      <div class='table-question'>
+        <div class="panel panel-default user-score-history-table-width" >    
+          <div class="panel-heading"><span class='oswaldFont' style='font-size: 1.5em;color: #2d80c7;' >User question score history</span></div>    
+          <table class="table table-striped">
+            <tr>
+              <th>#</th>        
+              <th>Test Name</th>        
+              <th>Total</th>        
+              <th>Correct</th>
+              <th>Wrong</th>
+              <th>Score</th>
+              <th>Date</th>
+              <!--<th>End Date</th>-->
+              <th>View</th>
+              <!--<th>Remove</th>-->
+            </tr>            
+            <tr *ngFor='let userScore of userScores; let i = index'  >
+              <td><span>{{i+offset+1}}</span></td>
+              <td><span>{{ userScore.test_name || 'No Test Mode' }}</span></td>
+              <td><span>{{ userScore.correct +  userScore.wrong}}</span></td>
+              <td><span>{{ userScore.correct }}</span></td>
+              <td><span>{{ userScore.wrong }}</span></td>
+              <td><span>{{ userScore.score  | number : '1.2-2' }}%</span></td>
+              <td><span>{{ userScore.added_date | date:'medium' }}</span></td>
+              <!--<td><span *ngIf="userScore.active == 0">{{ userScore.clear_date | date:'medium' }}</span></td>-->
+              <td><span class='btnWidth' ><a routerLink='/questionhistory' [queryParams]="{ maxitems:maxitems, offset:0, userscore:userScore.id }"  routerLinkActive='active' ><button type="button" class="btn btn-success glyphicon glyphicon-th-list" ></button></a></span></td>
+              <!--<td><span *ngIf="userScore.active == 1" >Current</span> <span *ngIf="userScore.active == 0" class='btnWidth' ><button type="button" class="btn btn-danger glyphicon glyphicon glyphicon-remove" (click)='deleteRow(userScore.id)' ></button></span></td>-->
+            </tr>
+          </table>    
+        </div>        
+      </div>    
+    </span>
+  </div>
+  <div class="row">   
+    <span class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl" >            
+      <br>
+      <div class='oswaldFont centerElement' style="font-size: 1.6em;color: #2d80c7;" >User Score History</div>
+      <br>
+      <div *ngFor='let userScore of userScores; let i = index' >
+        <div class='mobileCapsule' style="font-size: 1em;">                    
+          <div><i class="fa fa-pencil-square-o fa-1x" aria-hidden="true" style="color:burlywood;"></i>{{ userScore.test_name || 'No Test Mode' }} </div>
+          <span style="display: inline-block;width: 60px;"><i class="fa fa-bar-chart fa-1x"     aria-hidden="true" style="color:burlywood;"   ></i><span> {{ userScore.score }}% </span> </span>&nbsp;
+          <span style="display: inline-block;width: 90px;"><i class="fa fa-calendar fa-1x"      aria-hidden="true" style="color:burlywood;"   ></i><span> {{ userScore.added_date | date:'shortDate' }}</span> </span>&nbsp;
+          <span style="display: inline-block;width: 40px;"><i class="fa fa-thumbs-o-up fa-1x"   aria-hidden="true" style="color:greenyellow;" ></i><span> {{ userScore.correct }}</span> </span>&nbsp;
+          <span style="display: inline-block;width: 40px;"><i class="fa fa-thumbs-o-down fa-1x" aria-hidden="true" style="color:red;"         ></i><span> {{ userScore.wrong }}</span> </span>                    
+          <span><a routerLink='/questionhistory' [queryParams]="{ maxitems:maxitems, offset:0, userscore:userScore.id }"  routerLinkActive='active' ><i class="fa fa-search fa-1x buttonCustom" aria-hidden="true"></i></a></span>                  
+          <!--<span *ngIf="userScore.active == 0" (click)='deleteRow(userScore.id)' ><i class="fa fa-ban fa-1x buttonCustom" aria-hidden="true" style="color:red;"></i></span>          -->
+        </div>          
+      </div>
+    </span>
+  </div>
+  <app-pagination [pagesInfo]='pagesInfo' (click)='paginationClick()' ></app-pagination>  
+</div>
+
+
+

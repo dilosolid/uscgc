@@ -1,0 +1,15 @@
+<div style="text-align: center; vertical-align: middle;">
+  <div class="row"> 
+    <span class="col-xs-12 col-sm-12 col-md-6" >     
+      <button type="button" style="max-width:215px;display: inline-block;text-align: left;"  class="btn btn-primary btn-block" (click)='loginWithGoogle()'><img [src]="img_path_google" alt="Illustration" style="max-width: 100%">Sign In with Google</button>            
+    </span>
+    <span class="col-xs-12 col-sm-12 hidden-md hidden-lg hidden-xl" >   
+      <br>
+    </span>
+    <span class="col-xs-12 col-sm-12 col-md-6" >   
+      <button type="button" style="max-width:215px;display: inline-block;text-align: left;"  class="btn btn-primary btn-block" (click)='loginWithFacebook()'><img [src]="img_path_facebook" alt="Illustration" style="max-width: 100%">&nbsp;Sign In with Facebook</button>
+    </span>
+  </div>
+  <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+  <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>        
+</div>          

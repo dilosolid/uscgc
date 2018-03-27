@@ -1,0 +1,60 @@
+<app-loading-spinner *ngIf="!gotData" ></app-loading-spinner>
+<div *ngIf="gotData">  
+  <div class="row">   
+    <span class="hidden-xs col-sm-12 col-md-12" >            
+      <div class='table-question'>
+        <div class="panel panel-default">    
+        <div class="panel-heading"><span class='oswaldFont' style='font-size: 1.5em;color: #2d80c7;'>Favorites questions</span></div>    
+        <table class="table table-striped" >
+          <tr>
+            <th>#</th>        
+            <th>Category</th>
+            <th>Question</th>
+            <th>View</th>
+            <th>Remove</th>
+          </tr>
+          <tr *ngIf="Questions.length == 0" >
+            <td></td>
+            <td>You dont have any saved questions in your favorites</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr *ngFor='let Question of Questions; let i = index' >
+            <td>{{i+offset+1}}</td>
+            <td>{{Question.category}}</td>
+            <td>{{Question.question}}</td>        
+            <td><span  class='btnWidth' ><button type="button" class="btn btn-success glyphicon glyphicon-th-list"  (click)='ShowQuestion(Question.question_id)' ></button></span></td>
+            <td><span  class='btnWidth' ><button type="button" class="btn btn-danger glyphicon glyphicon glyphicon-remove" (click)='deleteRow(Question.id)' ></button></span></td>
+          </tr>
+        </table>    
+        </div>        
+      </div>  
+    </span>
+  </div>
+  <div class="row">   
+    <span class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl" >            
+      <div class='table-question'>
+        <div class="panel panel-default">    
+          <div class="panel-heading"><span class='oswaldFont' style='font-size: 1.5em;color: #2d80c7;'>Favorites questions</span></div>    
+          <table class="table table-striped" style="font-size: 0.8em !important;">
+            <tr>           
+              <th>#</th>                      
+              <th>Question</th>              
+              <th></th>
+            </tr>            
+            <tr *ngFor='let Question of Questions; let i = index' >              
+              <td>{{i+offset+1}}</td>
+              <td>{{Question.question}}</td>        
+              <td><span  class='btnWidth' ><button type="button" class="btn btn-success glyphicon glyphicon-th-list" style="margin: 0px 0px 15px 0px;" (click)='ShowQuestion(Question.question_id)' ></button></span>
+                  <span  class='btnWidth' ><button type="button" class="btn btn-danger glyphicon glyphicon glyphicon-remove" (click)='deleteRow(Question.id)' ></button></span></td>              
+            </tr>
+          </table>    
+        </div>        
+      </div>      
+    </span>
+  </div>
+  <app-pagination [pagesInfo]='pagesInfo' (click)='paginationClick()'></app-pagination>
+  <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+  <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>        
+</div>

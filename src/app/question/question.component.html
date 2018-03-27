@@ -1,0 +1,124 @@
+<app-loading-spinner *ngIf="!gotData" ></app-loading-spinner>
+<div *ngIf="gotData" class="panel panel-warning" >
+  <div class="panel-heading">
+    <div class="row">   
+      <span class="col-xs-12 col-sm-10 col-md-10" style='padding-top:7px;'>            
+        <span class="panel-title">{{ category | uppercase }} - {{ name }}</span>             
+      </span>
+      <span class="col-xs-6 col-sm-1 col-md-1 centerElement" >            
+        <a href="#" title="Save question to favorites" (click)="SaveToFavorites($event)" ><i class="fa fa-heart-o fa-2x" aria-hidden="true" style="color:greenyellow;" ></i></a>         
+      </span>
+      <span class="col-xs-6 col-sm-1 col-md-1 centerElement" >            
+        <a href="#" title="Remove question from appearing again" (click)="RemoveQuestion($event)" ><i class="fa fa-ban fa-2x" aria-hidden="true" style="color:red;" ></i></a> 
+      </span>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">    
+      <div class="row">   
+        <span class="col-xs-2 col-sm-2 col-md-1" >            
+          <div class="row">   
+            <span class="hidden-xs hidden-sm col-md-12" >            
+              <a href="#" (click)="PrevQuestion($event)"  *ngIf="prevQuestionList.length > 0" ><i class="fa fa-arrow-left fa-2x" aria-hidden="true" style="color:greenyellow;" ></i></a>
+            </span>
+            <span class="col-xs-12 col-sm-12 hidden-md hidden-lg hidden-xl" >            
+              <a href="#" (click)="PrevQuestion($event)"  *ngIf="prevQuestionList.length > 0" ><i class="fa fa-arrow-left fa-2x" aria-hidden="true" style="color:greenyellow;" ></i></a>
+            </span>
+          </div>
+        </span>
+        <span class="col-xs-8 col-sm-8 col-md-10" >            
+          <div *ngIf="us_question_count && us_test_name.length > 0" style="padding-bottom: 10px;">
+            <h4>
+              <div class="row">   
+                <span class="col-xs-12 col-sm-12 col-md-8" >                                        
+                    <span class="label label-info hideInMobile" >Name:</span><span [title]="us_test_name" class="infoMessage" > {{ us_test_name | slice:0:25 }} </span>                  
+                </span>                
+                <span class="col-xs-12 col-sm-12 col-md-4" >                                      
+                  <span class="label label-info" >Question:</span><span class='infoMessage'><span> {{ us_current_question_index }} </span><span> of </span><span> {{ us_question_count }} </span></span>
+                </span>                
+              </div>              
+            </h4>
+          </div>
+          <div *ngIf="us_test_name.length == 0 || (prevQuestionList.length > 0 && nextQuestionList.length == 0 && showNextButton) || showScore" style="text-align: center;" >
+            <i class="fa fa-thumbs-o-up fa-lg"   aria-hidden="true" style="color:greenyellow;" ></i>&nbsp;<span>{{ correctCount }}</span>&nbsp;&nbsp;
+            <i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true" style="color:red;" ></i>&nbsp;{{ inCorrectCount }}&nbsp;&nbsp;
+            <i class="fa fa-bar-chart fa-lg"     aria-hidden="true" style="color:burlywood;" ></i>&nbsp;<span>{{ getScoreForTemplate() | number : '1.2-2'  }}%</span>&nbsp;
+            <a href="#" (click)='ClearScore($event)'><span>Clear</span></a>
+          </div>                    
+        </span>
+        <span class="col-xs-2 col-sm-2 col-md-1" style='text-align: right;' >    
+          <div class="row">   
+            <span class="hidden-xs hidden-sm col-md-12" >            
+              <a href="#" (click)="NextQuestion($event)" *ngIf="nextQuestionList.length > 0 || us_question_count == 0" ><i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color:greenyellow;" ></i></a>          
+            </span>
+            <span class="col-xs-12 col-sm-12 hidden-md hidden-lg hidden-xl" >            
+              <a href="#" (click)="NextQuestion($event)" *ngIf="nextQuestionList.length > 0 || us_question_count == 0" ><i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color:greenyellow;" ></i></a>                        
+            </span>
+          </div>                  
+        </span>
+      </div>
+      <hr style='margin-top: 10px;'>      
+      <span>
+        <a class="list-group-item active">
+          <span class='boldText' >Question:</span> {{ question }}
+        </a>
+        <a href="#" [ngClass]="['list-group-item', answerbgColorA]" (click)="clickAnswer($event,'A')" ><span class='boldText' >A.</span> {{ answer_a }} </a>
+        <a href="#" [ngClass]="['list-group-item', answerbgColorB]" (click)="clickAnswer($event,'B')" ><span class='boldText' >B.</span> {{ answer_b }}</a>
+        <a href="#" [ngClass]="['list-group-item', answerbgColorC]" (click)="clickAnswer($event,'C')" ><span class='boldText' >C.</span> {{ answer_c }}</a>
+        <a href="#" [ngClass]="['list-group-item', answerbgColorD]" (click)="clickAnswer($event,'D')" ><span class='boldText' >D.</span> {{ answer_d }}</a>      
+        <div class="row">   
+          <span class="col-xs-4 col-sm-4 col-md-5" >                      
+          </span>
+          <span class="col-xs-4 col-sm-4 col-md-2" >                      
+            <br>
+            <span *ngIf="(showNextButton && us_test_name.length == 0) || (showNextButton && us_test_name.length > 0 && nextQuestionList.length > 0)">
+              <a href="#"  title="Next question" (click)="NextQuestion($event)" ><i class="fa fa-arrow-right fa-3x" aria-hidden="true" style="color:greenyellow;" ></i></a>  
+              <span *ngIf="us_test_name.length == 0 || showScore" >        
+                <span *ngIf='currentQuestionIsCorrect'><i class="fa fa-thumbs-o-up fa-3x"   aria-hidden="true" style="color:greenyellow;" ></i></span>
+                <span *ngIf='!currentQuestionIsCorrect'><i class="fa fa-thumbs-o-down fa-3x" aria-hidden="true" style="color:red;" ></i></span>
+              </span>
+            </span>
+          </span>
+          <span class="col-xs-4 col-sm-4 col-md-5" >                      
+          </span>
+        </div>      
+        <div class="row">   
+          <span class="col-xs-1 col-sm-1 col-md-2" >                      
+          </span>
+          <span class="col-xs-10 col-sm-10 col-md-8" style="text-align: center;" >                      
+            <div *ngIf='us_test_name.length != 0 && showScore'> 
+              <span class='infoMessageBig' style='color: #2d80c7;'>Final Score: <span>{{ getScoreForTemplate() | number : '1.2-2'  }}%</span></span>
+              <span *ngIf='getScoreForTemplate() >= 70'><i class="fa fa-thumbs-o-up fa-2x"   aria-hidden="true" style="color:greenyellow;" ></i></span>
+              <span *ngIf='getScoreForTemplate() <= 69'><i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" style="color:red;" ></i></span>
+              <br>
+              <div style="text-align: center;width: 100%;;padding-top:10px;">
+                <button type="button" style="max-width: 300px;display: inline-block;" class="btn btn-primary btn-block" (click)='goToGenerateNewTest()'>Create New Test</button>
+              </div>            
+            </div>
+            <div *ngIf='us_test_name.length != 0'>
+              <br>
+              <button type="button" style="max-width: 300px;display: inline-block;max-height: 50px;" class="btn btn-primary btn-block" (click)='ClearScore($event)'>Exit Test</button>                  
+            </div>
+          </span>
+          <span class="col-xs-1 col-sm-1 col-md-2" >                      
+          </span>
+        </div>            
+        <div *ngIf="us_test_name.length == 0 || showScore" >
+          <br *ngIf="ShowInfo == 1 || ShowInfo == 2" >            
+          <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+          <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>              
+        </div>
+        <div *ngIf="img_path.length > 0" >
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">Illustration</div>
+            <div class="panel-body" >
+              <img [src]="img_path" alt="Illustration" style="max-width: 100%"> 
+            </div>
+          </div>        
+        </div>
+      </span>
+    </div>
+  </div>  
+</div>
+

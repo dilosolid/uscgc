@@ -1,0 +1,21 @@
+<div *ngIf="pagesInfo.length > 1" >        
+    <div *ngIf="pagesInfo.length < 10">
+      <ul class="pagination" >
+        <li *ngFor='let page of pagesInfo; let i = index' >                          
+          <span *ngIf="!page.userscore && i < 10" ><a [routerLink]='page.route' [queryParams]="{ maxitems:page.maxitems,offset:page.offset }" routerLinkActive='active' >{{ i + 1 }}</a></span>
+          <span *ngIf="page.userscore  && i < 10" ><a [routerLink]='page.route' [queryParams]="{ maxitems:page.maxitems,offset:page.offset, userscore:page.userscore }" routerLinkActive='active' >{{ i + 1 }}</a></span>      
+        </li>            
+      </ul>
+    </div>
+    <div *ngIf="pagesInfo.length > 10">
+      <ul class="pagination" >
+        <li>                      
+          <span *ngIf="!currentUserScore && currentPage > 0" (click)='Prev()'><a>&laquo;</a></span>
+          <span *ngIf="currentUserScore  && currentPage > 0"  (click)='Prev()'><a>&laquo;</a></span>      
+          <span> {{ currentPage + 1}} of {{ pagesInfo.length }}</span>
+          <span *ngIf="!currentUserScore && currentPage < pagesInfo.length-1" (click)='Next()'><a>&raquo;</a></span>
+          <span *ngIf="currentUserScore  && currentPage < pagesInfo.length-1"  (click)='Next()'><a>&raquo;</a></span>
+        </li>            
+      </ul>
+    </div>  
+</div>

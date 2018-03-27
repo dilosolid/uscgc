@@ -1,0 +1,33 @@
+<br><br>
+<div class="row">   
+  <span class="col-xs-1 col-sm-1 col-md-2" ></span>
+  <span class="col-xs-10 col-sm-10 col-md-8" >            
+    <div class="panel panel-primary">
+      <div class="panel-heading">Existing user log in</div>
+      <div class="panel-body">                                                                    
+          <hr>
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span style="font-weight: bold;font-size:1.3em;" >@</span></span>
+            <input type="text" tabindex="2" class="form-control" placeholder="Email" [(ngModel)]='Email'>
+          </div>   
+          <div class="input-group form-group">
+            <span class="input-group-addon"><span class='glyphicon glyphicon-lock glyphicon-tamano'></span></span>
+            <input type="password" tabindex="2" class="form-control" placeholder="Password" [(ngModel)]='Password'>
+          </div>            
+          <div class="alert alert-success infoMessage" role="alert" *ngIf="ShowInfo == 1" > {{ InfoMessage }}</div>        
+          <div class="alert alert-danger  infoMessage" role="alert" *ngIf="ShowInfo == 2" > {{ InfoMessage }}</div>        
+          <div>
+            <button type="button" class="btn btn-primary btn-block" id='LogInBtn' >Log In</button>
+          </div>
+          <div style='padding-top: 15px;'><a routerLink='/recoverpassword'>Forgot Password? Click Here</a></div>          
+          <div style='padding-top: 15px;'><a routerLink='/register'>Don't have an account? Click Here</a></div>
+          <hr>            
+          <app-login3rdparty></app-login3rdparty>
+          <hr>
+      </div>
+    </div>        
+  </span>
+  <span class="col-xs-1 col-sm-1 col-md-2" ></span>
+</div>
+
+

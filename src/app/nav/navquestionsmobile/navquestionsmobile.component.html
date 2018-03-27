@@ -1,0 +1,42 @@
+<div style='padding: 10px 0px 20px 0px;' >  
+  <ul class='mobileQuestionMenu centerElement' style='padding: 0px 0px 0px 0px;'>
+    <li><span class='mobileCapsule' (click)='ShowMenu(1)' [ngClass]="{navMobileQuestionSelected: isActive1}" >Deck</span></li>
+    <li><span class='mobileCapsule' (click)='ShowMenu(2)' [ngClass]="{navMobileQuestionSelected: isActive2}" >Deck2014</span></li>
+    <li><span class='mobileCapsule' (click)='ShowMenu(3)' [ngClass]="{navMobileQuestionSelected: isActive3}" >Engine</span></li>
+    <li><span class='mobileCapsule' (click)='ShowMenu(4)' [ngClass]="{navMobileQuestionSelected: isActive4}" >Engine2014</span></li>
+  </ul>          
+  <div>
+    <div *ngIf="deck" style='margin-top:30px;'>
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 1 }" >&nbsp; RULES OF THE ROAD</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 2 }" >&nbsp; DECK GENERAL</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 3 }" >&nbsp; GENERAL NAVIGATION</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 4 }" >&nbsp; SAFETY</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 5 }" >&nbsp; NAVIGATION PROBLEMS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 6 }" >&nbsp; GMDSS ELEMENT 3</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 7 }">&nbsp; GMDSS ELEMENT 7</a>    
+    </div>
+    <div *ngIf="deck2014" style='margin-top:30px;'>
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 8  }" >&nbsp; RULES OF THE ROAD</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 9  }" >&nbsp; DECK GENERAL</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 10 }" >&nbsp; GENERAL NAVIGATION</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 11 }" >&nbsp; NAVIGATION PROBLEMS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 12 }" >&nbsp; SAFETY</a>    
+    </div>
+    <div *ngIf="engine" style='margin-top:30px;'>
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 13 }" >&nbsp; ELECTRICITY</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 14 }" >&nbsp; GENERAL SUBJECTS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 15 }" >&nbsp; MOTOR PLANTS AND AUXILIARY BOILERS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 16 }" >&nbsp; STEAM PLANTS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 17 }" >&nbsp; ENGINEERING SAFETY</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 18 }" >&nbsp; REFRIGERATION</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 19 }" >&nbsp; GAS TURBINES</a>    
+    </div>
+    <div *ngIf="engine2014" style='margin-top:30px;'>
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 21 }" >&nbsp; ELECTRICITY</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 20 }" >&nbsp; GENERAL SUBJECTS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 23 }" >&nbsp; MOTOR PLANTS AND AUXILIARY BOILERS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 22 }" >&nbsp; STEAM PLANTS</a>    
+      <a class="list-group-item" (click)='HideMenu()' routerLink='/question' [queryParams]="{ category: 24 }" >&nbsp; ENGINEERING SAFETY</a>    
+    </div>
+  </div>
+</div>

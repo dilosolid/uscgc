@@ -1,0 +1,19 @@
+<div style="margin-bottom: 20px;">
+  <div style="background:white;border-bottom: thin solid black;">    
+    <span class='navTop' >
+      <ul>              
+        <li><a (mouseenter)='ShowDropdown($event,true,true,1,0)' (mouseleave)='ShowDropdown($event,false,true,1,1)' [ngClass]="{activeLink: isActive1}" >Deck</a></li>
+        <li><a (mouseenter)='ShowDropdown($event,true,true,2,0)' (mouseleave)='ShowDropdown($event,false,true,2,1)' [ngClass]="{activeLink: isActive2}" >Deck 2014</a></li>
+        <li><a (mouseenter)='ShowDropdown($event,true,true,3,0)' (mouseleave)='ShowDropdown($event,false,true,3,1)' [ngClass]="{activeLink: isActive3}" >Engine</a></li>
+        <li><a (mouseenter)='ShowDropdown($event,true,true,4,0)' (mouseleave)='ShowDropdown($event,false,true,4,1)' [ngClass]="{activeLink: isActive4}" >Engine 2014</a></li>
+      </ul> 
+    </span>      
+  </div>
+</div>
+<div (mouseenter)='ShowDropdown($event,true,false,0,0)' (mouseleave)='ShowDropdown($event,false,false,0,1)' [ngStyle]="{ position:'fixed','z-index':'1000',left:buttonX + 'px', top: buttonY + 'px', width: elementWidth + 'px'}">
+  <div class='navQuestionDropDown'>
+    <ul *ngIf="showDropDown">                          
+      <li *ngFor='let link of links'><a href="#" (click)='changeCategory($event, link.category, link.subCategory)' > {{link.name}} </a></li>                        
+    </ul>          
+  </div>
+</div>

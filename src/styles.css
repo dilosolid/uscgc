@@ -1,0 +1,253 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    background:white;
+}
+
+.navTop ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.navTop li {
+    float: left;
+    margin-left: 43px;
+}
+
+.navTop li a {
+    font-size: 1.4em;
+    line-height: 20px;
+    font-family: 'Oswald',sans-serif;
+    color: #2d80c7;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding: 16px 0 14px;
+    border-bottom: 5px solid transparent;    
+    transition: all 1.0s ease;
+}
+
+.navQuestionDropDown ul li a{
+    font-size: 1em;    
+    font-family: 'Oswald',sans-serif;
+    color: #2d80c7;
+    display: block;    
+    font-weight: 300;
+    letter-spacing: 2px;    
+    border-bottom: 5px solid transparent;    
+    transition: all 0.5s ease;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navTop li a:hover {        
+    border-style: thick solid white;
+    border-bottom: thick solid #2d80c7;
+    text-decoration: none;
+}
+
+.navTop li a:active {        
+    text-decoration: none;        
+}
+
+.activeLink {
+    color: white !important;
+    background:#C0C0C0;    
+    border-bottom: thick solid #2d80c7;
+    text-decoration: none;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.navTop a:focus, .navTop a:visited {               /* Remove underline after click */
+    text-decoration:none;
+}
+
+.navQuestionDropDown {
+    background:white;    
+}
+
+.navQuestionDropDown ul{
+    list-style: none; 
+    padding: 0px 0px 0px 10px;
+    border: 1px solid #ddd;
+}
+
+.navQuestionDropDown ul li{
+    padding: 10px 0px 10px 0px;
+}
+
+.navQuestionDropDown ul li a:hover {        
+    border-style: thick solid white;
+    border-bottom: 2px solid #2d80c7;
+    text-decoration: none;
+}
+
+/*
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+*/
+
+.centerElement {
+    text-align: center;
+}
+
+.centerElementOnPage {    
+    position:absolute;    
+    top:50%;
+    left:50%;
+    padding:15px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.glyphiconSizeMed {
+    font-size: 2em;
+}
+
+.glyphiconSizeBig {
+    font-size: 3em;
+}
+
+.correctAnswerbgColor{
+    background-color:#dff0d8 !important;
+}
+
+.wrongAnswerbgColor{
+    background-color:#f2dede !important;
+}
+
+.previousAnswerbgColor{
+    background-color:#FFE4C4 !important;
+}
+
+.infoMessage{       
+    text-align: center;           
+    font-size: 1em;            
+}
+
+.infoMessageBig{
+    text-align: center;           
+    font-size: 1.6em;            
+}
+
+.table-question {
+    padding-left: 15px;   
+    padding-right: 15px;   
+}
+
+.radioButtonContactPage {
+    padding-left: 10px;
+}
+
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+
+.mobilePadding {
+    padding: 0px 0px 0px 0px;
+}
+
+.mobileCapsule {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    margin: 5px 5px 0px 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.buttonCustom {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    margin: 5px 2.5px 5px 2.5px;
+    padding:5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.ubuntuFont{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.oswaldFont {
+    font-family: 'Oswald', sans-serif;
+}
+
+.mainPageText {
+    font-weight: bold;font-size:3em;color: #2d80c7;
+}
+
+.importantPageText {
+    font-weight: bold;font-size:2em;color: #2d80c7;
+}
+
+.mobileQuestionMenu {
+    list-style-type: none;
+}
+
+.mobileQuestionMenu li {    
+    float: left;
+}
+
+.mobileMenusItemsColor  a{
+    color:#337ab7;
+}
+
+.navMobileQuestionSelected {
+    background: #ddd;
+}
+
+
+
+
+@media screen and (max-width: 981px) {  
+   
+    .hideInMobile {
+        display: none;
+    }
+
+    .mainVideo {
+        display: none;
+    }
+
+    .mainPageText {
+        font-weight: 100;font-size:2em;
+    }
+
+    .importantPageText {
+        font-size:1.5em;
+    }
+
+    .mobilePadding{
+        padding: 0px 10px 0px 10px;
+    }
+
+    .infoMessage {
+        font-size: 0.9em;            
+    }
+
+    .footer-text {
+        padding: 0px 0px 10px 10px;
+        font-size: 0.9em;            
+    }
+
+    .mobileTextArea{
+        margin: 0px 5px 0px 5px; 
+        border-style: solid;
+        border-width: 1px;
+    }
+}
